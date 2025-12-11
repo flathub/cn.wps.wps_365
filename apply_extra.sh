@@ -54,7 +54,6 @@ sed -i "s/generic-icon name=\"wps-office-/generic-icon name=\"${FLATPAK_ID}./g" 
 sed -i 's|/opt|/app/extra/opt|' usr/bin/{et,misc,wpp,wps,wpspdf}
 
 # use system libraries
-rm opt/kingsoft/wps-office/office6/lib{jpeg,stdc++}.so*
 if [[ "$CARCH" = "aarch64" ]]; then
     rm opt/kingsoft/wps-office/office6/addons/cef/libm.so*
     rm opt/kingsoft/wps-office/office6/libfreetype.so*
