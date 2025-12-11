@@ -55,6 +55,7 @@ sed -i 's|/opt|/app/extra/opt|' usr/bin/{et,misc,wpp,wps,wpspdf}
 
 # use system libraries
 if [[ "$CARCH" = "aarch64" ]]; then
+    rm opt/kingsoft/wps-office/office6/lib{jpeg,stdc++}.so*
     rm opt/kingsoft/wps-office/office6/addons/cef/libm.so*
     rm opt/kingsoft/wps-office/office6/libfreetype.so*
 fi
