@@ -41,4 +41,9 @@
     <control>tablet</control>
   </supports>
   <content_rating type="oars-1.1"/>
+  <keywords>
+    <keyword>office suite</keyword>
+    <keyword>digital office platform</keyword>
+    <keyword>collaborative software</keyword>
+  </keywords>
 </component>
