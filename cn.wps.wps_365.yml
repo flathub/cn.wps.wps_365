@@ -75,7 +75,7 @@ modules:
           type: json
           url: https://plus.wps.cn/ops/opsd/api/v1/policy?window_key=wps365_download_pc_muti
           version-query: '.data[] | select(.key=="downloadcontent") | .value | fromjson | .[] | select(.downloadtype=="linuxintegrate") | .links[] | select(.arch=="X64") | .packageList[0].link | capture("(?<v>\\d+\\.\\d+\\.\\d+\\.\\d+)") | .v'
-          url-query: '"https://pubwps-wps365-obs.wpscdn.cn/download/Linux/\($version | split(".")[-1])/" + "wps-office_\($version).AK.preload.sw_amd64.deb"'
+          url-query: '"https://pubwps-wps365-obs.wpscdn.cn/download/Linux/\($version | split(".")[-1])/" + "wps-office_\($version).AK.preread.sw_542884_amd64.deb"'
 
       - type: extra-data
         filename: wps-office.deb
@@ -88,4 +88,4 @@ modules:
           type: json
           url: https://plus.wps.cn/ops/opsd/api/v1/policy?window_key=wps365_download_pc_muti
           version-query: '.data[] | select(.key=="downloadcontent") | .value | fromjson | .[] | select(.downloadtype=="linuxintegrate") | .links[] | select(.arch=="X64") | .packageList[0].link | capture("(?<v>\\d+\\.\\d+\\.\\d+\\.\\d+)") | .v'
-          url-query: '"https://pubwps-wps365-obs.wpscdn.cn/download/Linux/\($version | split(".")[-1])/" + "wps-office_\($version).AK.preload.sw_arm64.deb"'
+          url-query: '"https://pubwps-wps365-obs.wpscdn.cn/download/Linux/\($version | split(".")[-1])/" + "wps-office_\($version).AK.preread.sw_542882_arm64.deb"'
