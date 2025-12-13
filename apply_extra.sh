@@ -64,4 +64,8 @@ fi
 sed -i '2i [[ "$XMODIFIERS" == "@im=fcitx" ]] && export QT_IM_MODULE=fcitx' \
     usr/bin/{wps,wpp,et,wpspdf}
 
+# disable force login
+sed -i '2i sed -i "s/enableForceLogin=true/enableForceLogin=false/" $HOME/.config/Kingsoft/Office.conf' \
+    usr/bin/{wps,wpp,et,wpspdf}
+
 rm -r wps-office.deb
