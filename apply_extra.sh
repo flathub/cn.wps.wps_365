@@ -3,6 +3,7 @@ set -e
 shopt -s failglob
 FLATPAK_ID="${FLATPAK_ID:-cn.wps.wps_365}"
 CARCH="$(uname -m)"
+: "${DELAY:=3}"
 
 mkdir -p export/share/
 
@@ -62,6 +63,10 @@ fi
 
 # fix input method
 sed -i '2i [[ "$XMODIFIERS" == "@im=fcitx" ]] && export QT_IM_MODULE=fcitx' \
+    usr/bin/{wps,wpp,et,wpspdf}
+
+# disable force login
+sed -i "2i sleep ${DELAY} && sed -i \"s/enableForceLogin=true/enableForceLogin=false/\" \$XDG_CONFIG_HOME/Kingsoft/Office.conf &" \
     usr/bin/{wps,wpp,et,wpspdf}
 
 rm -r wps-office.deb
