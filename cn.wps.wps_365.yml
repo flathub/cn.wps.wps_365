@@ -41,11 +41,12 @@ modules:
     build-commands:
       - install -Dm755 apply_extra.sh ${FLATPAK_DEST}/bin/apply_extra
       - install -Dm755 xiezuo.sh ${FLATPAK_DEST}/bin/xiezuo
+      - install -Dm755 wps_runner.sh ${FLATPAK_DEST}/bin/wps_runner
       - install -Dm644 ${FLATPAK_ID}.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo/
       - install -Dm644 ${FLATPAK_ID}.desktop -t ${FLATPAK_DEST}/share/applications
       - install -Dm644 ${FLATPAK_ID}.svg -t ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps
       - install -Dm755 /usr/bin/desktop-file-edit -t ${FLATPAK_DEST}/bin/
-      - for appbin in et  misc  wpp  wps  wpspdf; do ln -s ${FLATPAK_DEST}/extra/usr/bin/$appbin
+      - for appbin in et  misc  wpp  wps  wpspdf; do ln -s ${FLATPAK_DEST}/bin/wps_runner
         ${FLATPAK_DEST}/bin/$appbin; done
     sources:
       - type: file
@@ -55,6 +56,14 @@ modules:
         dest-filename: xiezuo.sh
         commands:
           - zypak-wrapper /app/extra/opt/xiezuo/xiezuo "$@"
+      
+      - type: script
+        dest-filename: wps_runner.sh
+        commands:
+          - '[[ "$XMODIFIERS" == "@im=fcitx" ]] && export QT_IM_MODULE=fcitx'
+          - 'DISABLE_FORCE_LOGIN_DELAY="${DISABLE_FORCE_LOGIN_DELAY:-3}"'
+          - 'sleep ${DISABLE_FORCE_LOGIN_DELAY} && sed -i "s/enableForceLogin=true/enableForceLogin=false/" "$XDG_CONFIG_HOME/Kingsoft/Office.conf" &'
+          - '/app/extra/usr/bin/$(basename "$0") "$@"'
 
       - type: file
         path: cn.wps.wps_365.metainfo.xml
