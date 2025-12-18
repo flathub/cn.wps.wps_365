@@ -57,13 +57,8 @@ modules:
         commands:
           - zypak-wrapper /app/extra/opt/xiezuo/xiezuo "$@"
       
-      - type: script
-        dest-filename: wps_runner.sh
-        commands:
-          - '[[ "$XMODIFIERS" == "@im=fcitx" ]] && export QT_IM_MODULE=fcitx'
-          - 'DISABLE_FORCE_LOGIN_DELAY="${DISABLE_FORCE_LOGIN_DELAY:-3}"'
-          - 'sleep ${DISABLE_FORCE_LOGIN_DELAY} && sed -i "s/enableForceLogin=true/enableForceLogin=false/" "$XDG_CONFIG_HOME/Kingsoft/Office.conf" &'
-          - '/app/extra/usr/bin/$(basename "$0") "$@"'
+      - type: file
+        path: wps_runner.sh
 
       - type: file
         path: cn.wps.wps_365.metainfo.xml
