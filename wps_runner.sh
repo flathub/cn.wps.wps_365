@@ -41,4 +41,4 @@ fi
 # Disable force login after a delay
 sleep ${DISABLE_FORCE_LOGIN_DELAY} && sed -i "s/enableForceLogin=true/enableForceLogin=false/" "$XDG_CONFIG_HOME/Kingsoft/Office.conf" &
 
-/app/extra/usr/bin/$(basename "$0") "$@"
+exec /app/extra/usr/bin/$(basename "$0") "$@"
