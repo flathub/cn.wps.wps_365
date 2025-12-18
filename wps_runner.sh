@@ -1,4 +1,9 @@
 #!/bin/bash
+
+function msg() {
+    echo "Wrapper: $*" >&2
+}
+
 DEFAULT_DATA_HOME="${HOME}/.local/share"
 DISABLE_FORCE_LOGIN_DELAY="${DISABLE_FORCE_LOGIN_DELAY:-3}"
 CONF_FILE="${XDG_CONFIG_HOME}/Kingsoft/Office.conf"
