@@ -56,7 +56,7 @@ modules:
         dest-filename: xiezuo.sh
         commands:
           - zypak-wrapper /app/extra/opt/xiezuo/xiezuo "$@"
-      
+
       - type: file
         path: wps_runner.sh
 
@@ -73,9 +73,9 @@ modules:
         filename: wps-office.deb
         only-arches:
           - x86_64
-        url: https://pubwps-wps365-obs.wpscdn.cn/download/Linux/23578/wps-office_12.1.2.23578.AK.preread.sw_542884_amd64.deb
-        sha256: cfb4ae150512e2cfaf11b8528685152a57dbffda113a67fc2168f9aa4c6a01ec
-        size: 857889020
+        url: https://pubwps-wps365-obs.wpscdn.cn/download/Linux/24722/wps-office_12.1.2.24722.AK.preread.sw_612423_amd64.deb
+        sha256: 698e1dadbd2f4df8bd1cedcde4b801dc62d9bbd52583b765046b4bfbbf052488
+        size: 875315822
         x-checker-data:
           type: json
           url: https://plus.wps.cn/ops/opsd/api/v1/policy?window_key=wps365_download_pc_muti
@@ -90,9 +90,9 @@ modules:
         filename: wps-office.deb
         only-arches:
           - aarch64
-        url: https://pubwps-wps365-obs.wpscdn.cn/download/Linux/23578/wps-office_12.1.2.23578.AK.preread.sw_542882_arm64.deb
-        sha256: 4991d3356cafefa4d160fa0f0ddb582bccdc4b975127a8d9868c05d889e5d52c
-        size: 813811588
+        url: https://pubwps-wps365-obs.wpscdn.cn/download/Linux/24722/wps-office_12.1.2.24722.AK.preread.sw_612444_arm64.deb
+        sha256: b15570108c4db33652c51dbf5eb7410177cf875378a1a6b8169690151cee8f79
+        size: 832253250
         x-checker-data:
           type: json
           url: https://plus.wps.cn/ops/opsd/api/v1/policy?window_key=wps365_download_pc_muti
