@@ -17,4 +17,4 @@
 
 ### 技巧
 - 如果担心隐私问题，可以通过`flatpak --user override cn.wps.wps_365 --unshare=network`关闭网络权限.
-- WPS 365 会在启动时启动 WPS 网盘并创建托盘图标。如果你在 WPS 网盘设置中关闭“WPS 启动时自动启动”，它依然会启动，只是不会创建托盘图标，导致无法用右键退出。在这种情况下你需要使用`flatpak kill cn.wps.wps_365`才能彻底关闭程序.
+- WPS 365 可能会创建后台进程。在这种情况下你需要使用`flatpak kill cn.wps.wps_365`才能彻底关闭程序.

@@ -84,7 +84,7 @@ modules:
             | .packageList[0].link | capture("(?<v>\\d+\\.\\d+\\.\\d+\\.\\d+)") |
             .v
           url-query: '"https://pubwps-wps365-obs.wpscdn.cn/download/Linux/\($version
-            | split(".")[-1])/" + "wps-office_\($version).AK.preread.sw_542884_amd64.deb"'
+            | split(".")[-1])/" + "wps-office_\($version).AK.preread.sw_612423_amd64.deb"'
 
       - type: extra-data
         filename: wps-office.deb
@@ -101,4 +101,4 @@ modules:
             | .packageList[0].link | capture("(?<v>\\d+\\.\\d+\\.\\d+\\.\\d+)") |
             .v
           url-query: '"https://pubwps-wps365-obs.wpscdn.cn/download/Linux/\($version
-            | split(".")[-1])/" + "wps-office_\($version).AK.preread.sw_542882_arm64.deb"'
+            | split(".")[-1])/" + "wps-office_\($version).AK.preread.sw_612444_arm64.deb"'
