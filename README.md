@@ -17,4 +17,4 @@
 
 ### Tips
 - If you’re concerned about potential privacy issues, you can disable network access by running: `flatpak --user override cn.wps.wps_365 --unshare=network`.
-- The application will launch "wps cloud storage", and create an icon on system tray. If you uncheck "start with wps" in the settings of the tool, it will still be launched without the tray icon, making it impossible to gracefully exit the tool. In that case you will need `flatpak kill cn.wps.wps_365` to completely close the application.
+- The application may leave background processes. In that case you will need `flatpak kill cn.wps.wps_365` to completely close the application.
