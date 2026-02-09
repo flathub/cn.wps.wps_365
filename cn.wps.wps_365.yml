@@ -2,8 +2,8 @@ id: cn.wps.wps_365
 runtime: org.freedesktop.Platform
 runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
-base: org.electronjs.Electron2.BaseApp
-base-version: '25.08'
+# base: org.electronjs.Electron2.BaseApp
+# base-version: '25.08'
 tags:
   - proprietary
 command: wps
