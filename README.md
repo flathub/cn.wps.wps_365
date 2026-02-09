@@ -18,3 +18,4 @@
 ### Tips
 - If you’re concerned about potential privacy issues, you can disable network access by running: `flatpak --user override cn.wps.wps_365 --unshare=network`.
 - The application may leave background processes. In that case you will need `flatpak kill cn.wps.wps_365` to completely close the application.
+- Xiezuo currently doesn't work. Checkout discussion at: [https://bbs.deepin.org/zh/post/295131](https://bbs.deepin.org/zh/post/295131). So we remove its files. If anyone knows how to fix it, please feel free to contribute.
