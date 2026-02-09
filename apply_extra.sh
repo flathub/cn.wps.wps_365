@@ -16,10 +16,14 @@ YEAR_SUFFIX=2023
 rename --no-overwrite "wps-office-" "${FLATPAK_ID}." export/share/{icons/hicolor/*/*,applications}/wps-office-*.*
 rename --no-overwrite "wps-office${YEAR_SUFFIX}-" "${FLATPAK_ID}." export/share/icons/hicolor/*/*/wps-office${YEAR_SUFFIX}-*.*
 rename --no-overwrite "custom-wps-office" "${FLATPAK_ID}" export/share/mime/packages/custom-wps-office.xml
-rename --no-overwrite "xiezuo" "${FLATPAK_ID}.xiezuo" export/share/{icons/hicolor/*/*,applications}/xiezuo.*
+
+# Xiezuo currently doesn't work. Checkout discussion at: https://bbs.deepin.org/zh/post/295131. So we remove its files. If anyone knows how to fix it, please feel free to contribute.
+# rename --no-overwrite "xiezuo" "${FLATPAK_ID}.xiezuo" export/share/{icons/hicolor/*/*,applications}/xiezuo.*
+rm export/share/{icons/hicolor/*/*,applications}/xiezuo.*
+rm -r opt/xiezuo
 
 # Edit .desktop files to adjust Exec and Icon entries
-for a in wps wpp et pdf prometheus xiezuo; do
+for a in wps wpp et pdf prometheus; do
     desktop_file="export/share/applications/${FLATPAK_ID}.$a.desktop"
     appbin="$a %F"
     appicon="${FLATPAK_ID}.${a}main"
@@ -35,10 +39,10 @@ for a in wps wpp et pdf prometheus xiezuo; do
             mv $desktop_file $new_desktop_file
             desktop_file=$new_desktop_file
         ;;
-        xiezuo)
-            appbin="xiezuo %U"
-            appicon="${FLATPAK_ID}.xiezuo"
-        ;;
+        # xiezuo)
+        #     appbin="xiezuo %U"
+        #     appicon="${FLATPAK_ID}.xiezuo"
+        # ;;
     esac
     desktop-file-edit \
         --set-key="Exec" --set-value="$appbin" \

@@ -18,3 +18,4 @@
 ### 技巧
 - 如果担心隐私问题，可以通过`flatpak --user override cn.wps.wps_365 --unshare=network`关闭网络权限.
 - WPS 365 可能会创建后台进程。在这种情况下你需要使用`flatpak kill cn.wps.wps_365`才能彻底关闭程序.
+- WPS协作 目前不能正常工作。参考[https://bbs.deepin.org/zh/post/295131](https://bbs.deepin.org/zh/post/295131)。我们暂时移除了它。如果你知道如何修复它，欢迎 issue 或者 pr。
