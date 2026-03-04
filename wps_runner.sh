@@ -37,6 +37,7 @@ fi
 
 # Fix input method for Chinese users
 [[ "$XMODIFIERS" == "@im=fcitx" ]] && export QT_IM_MODULE=fcitx
+[[ "$XMODIFIERS" == "@im=ibus" ]] && export QT_IM_MODULE=ibus
 
 # Disable force login after a delay
 sleep ${DISABLE_FORCE_LOGIN_DELAY} && sed -i "s/enableForceLogin=true/enableForceLogin=false/" "$XDG_CONFIG_HOME/Kingsoft/Office.conf" &
