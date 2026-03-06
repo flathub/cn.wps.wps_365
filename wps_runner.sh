@@ -36,7 +36,12 @@ else
 fi
 
 # Fix input method for Chinese users
-[[ "$XMODIFIERS" == "@im=fcitx" ]] && export QT_IM_MODULE=fcitx
+if [[ -z "${QT_IM_MODULE}" ]]; then
+    case "${XMODIFIERS}" in
+        *@im=fcitx*) export QT_IM_MODULE=fcitx ;;
+        *@im=ibus*) export QT_IM_MODULE=ibus ;;
+    esac
+fi
 
 # Disable force login after a delay
 sleep ${DISABLE_FORCE_LOGIN_DELAY} && sed -i "s/enableForceLogin=true/enableForceLogin=false/" "$XDG_CONFIG_HOME/Kingsoft/Office.conf" &
