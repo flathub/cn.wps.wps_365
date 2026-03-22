@@ -73,7 +73,7 @@ modules:
         filename: wps-office.deb
         only-arches:
           - x86_64
-        url: https://pubwps-wps365-obs.wpscdn.cn/download/Linux/24722/wps-office_12.1.2.24722.AK.preread.sw_612423_amd64.deb
+        url: https://pubwps-wps365-obs.wpscdn.cn/download/Linux/24730/wps-office_12.1.2.24730.AK.preread.sw_644359_amd64.deb
         sha256: 698e1dadbd2f4df8bd1cedcde4b801dc62d9bbd52583b765046b4bfbbf052488
         size: 875315822
         x-checker-data:
@@ -90,7 +90,7 @@ modules:
         filename: wps-office.deb
         only-arches:
           - aarch64
-        url: https://pubwps-wps365-obs.wpscdn.cn/download/Linux/24722/wps-office_12.1.2.24722.AK.preread.sw_612444_arm64.deb
+        url: https://pubwps-wps365-obs.wpscdn.cn/download/Linux/24730/wps-office_12.1.2.24730.AK.preread.sw_644358_arm64.deb
         sha256: b15570108c4db33652c51dbf5eb7410177cf875378a1a6b8169690151cee8f79
         size: 832253250
         x-checker-data:
