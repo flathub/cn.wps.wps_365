@@ -26,11 +26,14 @@
     <category>Office</category>
   </categories>
   <releases>
-    <release version="12.1.2.24730" date="2026-03-22">
+    <release version="12.1.2.25882" date="2026-04-13">
       <description></description>
     </release>
+    <release version="12.1.2.24730" date="2026-03-22">
+      <description/>
+    </release>
     <release version="12.1.2.24722" date="2026-01-16">
-      <description></description>
+      <description/>
     </release>
     <release version="12.1.2.23578" date="2025-11-14">
       <description/>
