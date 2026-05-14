@@ -81,10 +81,11 @@ modules:
           url: https://plus.wps.cn/ops/opsd/api/v1/policy?window_key=wps365_download_pc_muti
           version-query: .data[] | select(.key=="downloadcontent") | .value | fromjson
             | .[] | select(.downloadtype=="linuxintegrate") | .links[] | select(.arch=="X64")
-            | .packageList[0].link | capture("(?<v>\\d+\\.\\d+\\.\\d+\\.\\d+)") |
-            .v
-          url-query: '"https://pubwps-wps365-obs.wpscdn.cn/download/Linux/\($version
-            | split(".")[-1])/" + "wps-office_\($version).AK.preread.sw.365_667345_amd64.deb"'
+            | .packageList[] | select(.type=="deb") | .link | capture("/wps-office_(?<v>\\d+\\.\\d+\\.\\d+\\.\\d+)\\.[^_]+_(?<build>\\d+)_amd64\\.deb$")
+            | "\(.v)_\(.build)"
+          url-query: .data[] | select(.key=="downloadcontent") | .value | fromjson
+            | .[] | select(.downloadtype=="linuxintegrate") | .links[] | select(.arch=="X64")
+            | .packageList[] | select(.type=="deb") | .link
 
       - type: extra-data
         filename: wps-office.deb
@@ -97,8 +98,9 @@ modules:
           type: json
           url: https://plus.wps.cn/ops/opsd/api/v1/policy?window_key=wps365_download_pc_muti
           version-query: .data[] | select(.key=="downloadcontent") | .value | fromjson
-            | .[] | select(.downloadtype=="linuxintegrate") | .links[] | select(.arch=="X64")
-            | .packageList[0].link | capture("(?<v>\\d+\\.\\d+\\.\\d+\\.\\d+)") |
-            .v
-          url-query: '"https://pubwps-wps365-obs.wpscdn.cn/download/Linux/\($version
-            | split(".")[-1])/" + "wps-office_\($version).AK.preread.sw.365_667348_arm64.deb"'
+            | .[] | select(.downloadtype=="linuxintegrate") | .links[] | select(.arch=="ARM64")
+            | .packageList[] | select(.type=="deb") | .link | capture("/wps-office_(?<v>\\d+\\.\\d+\\.\\d+\\.\\d+)\\.[^_]+_(?<build>\\d+)_arm64\\.deb$")
+            | "\(.v)_\(.build)"
+          url-query: .data[] | select(.key=="downloadcontent") | .value | fromjson
+            | .[] | select(.downloadtype=="linuxintegrate") | .links[] | select(.arch=="ARM64")
+            | .packageList[] | select(.type=="deb") | .link
