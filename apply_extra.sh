@@ -57,6 +57,9 @@ sed -i "s/generic-icon name=\"wps-office-/generic-icon name=\"${FLATPAK_ID}./g" 
 # Fix hardcoded /opt paths in binaries
 sed -i 's|/opt|/app/extra/opt|' usr/bin/{et,misc,wpp,wps,wpspdf}
 
+# Fix hardcoded config paths in wrapper scripts for Flatpak's XDG config dir
+sed -i 's|${HOME}/.config|${XDG_CONFIG_HOME:-$HOME/.config}|g' usr/bin/{et,misc,wpp,wps,wpspdf}
+
 # use system libraries
 if [[ "$CARCH" = "aarch64" ]]; then
     rm opt/kingsoft/wps-office/office6/lib{jpeg,stdc++}.so*
