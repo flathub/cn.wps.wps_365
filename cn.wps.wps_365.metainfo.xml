@@ -7,9 +7,6 @@
   <name xml:lang="zh-Hans">WPS 365</name>
   <summary>WPS 365 Suite</summary>
   <description>
-    <p>**NOTE: This wrapper is not verified by, affiliated with, or
-    supported by Beijing Kingsoft Office Software, Inc.**</p>
-    <p xml:lang="zh-Hans">**注意：此封装未经过金山办公软件股份有限公司的验证、关联或支持。**</p>
     <p>**The software supports changing the display language, refer to https://github.com/flathub/cn.wps.wps_365/blob/master/README.md for details. However, translations in languages other than Chinese may be incomplete.**</p>
     <p>**Please follow https://github.com/flathub/cn.wps.wps_365/blob/master/README.md after installation.**</p>
     <p xml:lang="zh-Hans">**请在安装后访问 https://github.com/flathub/cn.wps.wps_365/blob/master/README_CN.md 以获取使用技巧**</p>
