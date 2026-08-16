@@ -23,8 +23,11 @@
     <category>Office</category>
   </categories>
   <releases>
-    <release version="12.1.2.26885_715982" date="2026-06-16">
+    <release version="12.1.2.28080_765470" date="2026-08-13">
       <description></description>
+    </release>
+    <release version="12.1.2.26885_715982" date="2026-06-16">
+      <description/>
     </release>
     <release version="12.1.2.25882_667348" date="2026-04-16">
       <description/>
