@@ -17,5 +17,5 @@
 
 ### Tips
 - If you’re concerned about potential privacy issues, you can disable network access by running: `flatpak --user override cn.wps.wps_365 --unshare=network`.
-- The application may leave background processes. In that case you will need `flatpak kill cn.wps.wps_365` to completely close the application.
+- The application may leave background processes. In that case you will need `flatpak kill cn.wps.wps_365` to completely close the application. Or, you can choose to set environment variable `KSO_KILL_CLOUDSVR_AFTERWARDS=1` in flatpak overrides (e.g. with Flatseal) to automatically kill wpscloudsvr after WPS 365 quits.
 - Xiezuo currently doesn't work. Checkout discussion at: [https://bbs.deepin.org/zh/post/295131](https://bbs.deepin.org/zh/post/295131). So we remove its files. If anyone knows how to fix it, please feel free to contribute.
