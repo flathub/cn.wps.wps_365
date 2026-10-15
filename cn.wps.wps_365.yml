@@ -16,6 +16,7 @@ finish-args:
   - --device=dri
   - --env=TMPDIR=/var/tmp
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
+  - --env=KSO_DISABLE_FORCE_LOGIN=1
   - --filesystem=xdg-desktop
   - --filesystem=xdg-documents
   - --filesystem=xdg-download

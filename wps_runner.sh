@@ -44,7 +44,10 @@ if [[ -z "${QT_IM_MODULE}" ]]; then
 fi
 
 # Disable force login after a delay
-sleep ${DISABLE_FORCE_LOGIN_DELAY} && sed -i "s/enableForceLogin=true/enableForceLogin=false/" "$XDG_CONFIG_HOME/Kingsoft/Office.conf" &
+if [[ "${KSO_DISABLE_FORCE_LOGIN}" == "1" ]]; then
+    msg "Disabling force login after ${DISABLE_FORCE_LOGIN_DELAY}s"
+    sleep ${DISABLE_FORCE_LOGIN_DELAY} && sed -i "s/enableForceLogin=true/enableForceLogin=false/" "$XDG_CONFIG_HOME/Kingsoft/Office.conf" &
+fi
 
 # Opt-in: avoid a second window when another sandbox already runs WPS (see wps_forward_shim.c)
 if [[ "${KSO_ENABLE_FORWARD_SHIM}" == "1" ]]; then
