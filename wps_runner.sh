@@ -20,7 +20,6 @@ if [ ! -f "${CONF_FILE}" ]; then
     cat <<EOF > "${CONF_FILE}"
 [6.0]
 common\Backup\AutoRecoverFilePath=${NEW_BACKUP_PATH}
-wpsoffice\Application%20Settings\AppComponentMode=prome_independ
 EOF
 elif grep -q "${OLD_BACKUP_PATH}" "${CONF_FILE}"; then
     msg "Config file contains old paths, updating"
