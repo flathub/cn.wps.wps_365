@@ -42,6 +42,9 @@ modules:
       - install -Dm755 apply_extra.sh ${FLATPAK_DEST}/bin/apply_extra
       # - install -Dm755 xiezuo.sh ${FLATPAK_DEST}/bin/xiezuo
       - install -Dm755 wps_runner.sh ${FLATPAK_DEST}/bin/wps_runner
+      - install -d ${FLATPAK_DEST}/lib
+      - gcc -shared -fPIC -O2 -Wall -Wextra -Werror -o ${FLATPAK_DEST}/lib/wps_forward_shim.so
+        wps_forward_shim.c -ldl
       - install -Dm644 ${FLATPAK_ID}.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo/
       - install -Dm644 ${FLATPAK_ID}.desktop -t ${FLATPAK_DEST}/share/applications
       - install -Dm644 ${FLATPAK_ID}.svg -t ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps
@@ -59,6 +62,9 @@ modules:
 
       - type: file
         path: wps_runner.sh
+
+      - type: file
+        path: wps_forward_shim.c
 
       - type: file
         path: cn.wps.wps_365.metainfo.xml
