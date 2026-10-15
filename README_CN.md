@@ -27,3 +27,5 @@
 | `KSO_KILL_CLOUDSVR_AFTERWARDS` | 未设置（禁用） | `1` 表示启用 | WPS 365 退出后，如果没有其他 WPS 组件仍在运行，则结束后台进程 wpscloudsvr。 |
 | `KSO_KILL_CLOUDSVR_AFTERWARDS_DELAY` | `3` | 非负秒数 | WPS 365 退出后等待多久再检查并结束 wpscloudsvr。仅在 `KSO_KILL_CLOUDSVR_AFTERWARDS=1` 时生效。 |
 | `KSO_ENABLE_FORWARD_SHIM` | 未设置（禁用） | `1` 表示启用 | 实验性。整合模式下，WPS 365 运行时从文件管理器打开文件，会在已有窗口中打开的同时再额外打开一个窗口，原因是每次启动都运行在独立的沙箱中。启用后会预加载一个小型库（[wps_forward_shim.c](wps_forward_shim.c)），在 WPS 已将文件交给已有窗口后结束新进程。 |
+| `KSO_DISABLE_FORCE_LOGIN` | `1` | `1` 表示启用，未设置为禁用 | |
+| `DISABLE_FORCE_LOGIN_DELAY` | `3` | 非负秒数 | |

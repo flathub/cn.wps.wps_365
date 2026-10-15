@@ -27,3 +27,5 @@ These optional workarounds are controlled by environment variables. Set them in 
 | `KSO_KILL_CLOUDSVR_AFTERWARDS` | unset (disabled) | `1` to enable | Kill the background process wpscloudsvr after WPS 365 quits, if no other WPS component is still running. |
 | `KSO_KILL_CLOUDSVR_AFTERWARDS_DELAY` | `3` | Non-negative number of seconds | How long to wait after WPS 365 quits before checking and killing wpscloudsvr. Only takes effect when `KSO_KILL_CLOUDSVR_AFTERWARDS=1`. |
 | `KSO_ENABLE_FORWARD_SHIM` | unset (disabled) | `1` to enable | Experimental. In integrated mode, opening a file from the file manager while WPS 365 is running opens it in the running window and also in an extra window, because each launch runs in its own sandbox. This preloads a small library ([wps_forward_shim.c](wps_forward_shim.c)) that ends the new process once WPS has handed the file to the running window. |
+| `KSO_DISABLE_FORCE_LOGIN` | `1` | `1` to enable, unset to disable | |
+| `DISABLE_FORCE_LOGIN_DELAY` | `3` | Non-negative number of seconds | |
