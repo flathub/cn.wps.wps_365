@@ -17,5 +17,13 @@
 
 ### 技巧
 - 如果担心隐私问题，可以通过`flatpak --user override cn.wps.wps_365 --unshare=network`关闭网络权限.
-- WPS 365 可能会创建后台进程。在这种情况下你需要使用`flatpak kill cn.wps.wps_365`才能彻底关闭程序。或者您可以选择在 flatpak overrides （如通过 Flatseal ）中设置环境变量 `KSO_KILL_CLOUDSVR_AFTERWARDS` 的值为 1 以在 WPS 365 退出后自动杀死 wpscloudsvr。
 - WPS协作 目前不能正常工作。参考[https://bbs.deepin.org/zh/post/295131](https://bbs.deepin.org/zh/post/295131)。我们暂时移除了它。如果你知道如何修复它，欢迎 issue 或者 pr。
+
+### 实验性补丁
+以下是一些实验性补丁，用于改善 WPS 365 在 Flatpak 下的体验，通过环境变量控制。可在 flatpak overrides 中设置，例如 `flatpak --user override cn.wps.wps_365 --env=KSO_ENABLE_FORWARD_SHIM=1`，或通过 Flatseal 设置。
+
+| 变量 | 默认值 | 有效值 | 说明 |
+|---|---|---|---|
+| `KSO_KILL_CLOUDSVR_AFTERWARDS` | 未设置（禁用） | `1` 表示启用 | WPS 365 退出后，如果没有其他 WPS 组件仍在运行，则结束后台进程 wpscloudsvr。 |
+| `KSO_KILL_CLOUDSVR_AFTERWARDS_DELAY` | `3` | 非负秒数 | WPS 365 退出后等待多久再检查并结束 wpscloudsvr。仅在 `KSO_KILL_CLOUDSVR_AFTERWARDS=1` 时生效。 |
+| `KSO_ENABLE_FORWARD_SHIM` | 未设置（禁用） | `1` 表示启用 | 实验性。整合模式下，WPS 365 运行时从文件管理器打开文件，会在已有窗口中打开的同时再额外打开一个窗口，原因是每次启动都运行在独立的沙箱中。启用后会预加载一个小型库（[wps_forward_shim.c](wps_forward_shim.c)），在 WPS 已将文件交给已有窗口后结束新进程。 |

@@ -20,7 +20,6 @@ if [ ! -f "${CONF_FILE}" ]; then
     cat <<EOF > "${CONF_FILE}"
 [6.0]
 common\Backup\AutoRecoverFilePath=${NEW_BACKUP_PATH}
-wpsoffice\Application%20Settings\AppComponentMode=prome_independ
 EOF
 elif grep -q "${OLD_BACKUP_PATH}" "${CONF_FILE}"; then
     msg "Config file contains old paths, updating"
@@ -46,6 +45,11 @@ fi
 
 # Disable force login after a delay
 sleep ${DISABLE_FORCE_LOGIN_DELAY} && sed -i "s/enableForceLogin=true/enableForceLogin=false/" "$XDG_CONFIG_HOME/Kingsoft/Office.conf" &
+
+# Opt-in: avoid a second window when another sandbox already runs WPS (see wps_forward_shim.c)
+if [[ "${KSO_ENABLE_FORWARD_SHIM}" == "1" ]]; then
+    export LD_PRELOAD="/app/lib/wps_forward_shim.so${LD_PRELOAD:+:${LD_PRELOAD}}"
+fi
 
 if [[ "${KSO_KILL_CLOUDSVR_AFTERWARDS}" != "1" ]]; then
     exec /app/extra/usr/bin/$(basename "$0") "$@"
