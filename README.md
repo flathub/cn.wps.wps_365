@@ -16,7 +16,7 @@
     ```
 
 ### Tips
-- If you’re concerned about potential privacy issues, you can disable network access by running: `flatpak --user override cn.wps.wps_365 --unshare=network`.
+- If your desktop environment isn't included in: `gnome`, `unity`, `kde`, `ukui`, `kylin`, `deepin`, the "Open File Location" button may not work. You can set the `XDG_CURRENT_DESKTOP` environment variable to one of the above in flatpak overrides to fix.
 - Xiezuo currently doesn't work. Checkout discussion at: [https://bbs.deepin.org/zh/post/295131](https://bbs.deepin.org/zh/post/295131). So we remove its files. If anyone knows how to fix it, please feel free to contribute.
 
 ### Workaround switches

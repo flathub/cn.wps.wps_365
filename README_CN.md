@@ -16,7 +16,7 @@
     ```
 
 ### 技巧
-- 如果担心隐私问题，可以通过`flatpak --user override cn.wps.wps_365 --unshare=network`关闭网络权限.
+- 如果你的桌面环境不是以下之一：`gnome`、`unity`、`kde`、`ukui`、`kylin`、`deepin`，“打开文件位置”功能可能失效。如遇此种情况，可在 flatpak overrides 中将`XDG_CURRENT_DESKTOP`环境变量设置为以上之一。
 - WPS协作 目前不能正常工作。参考[https://bbs.deepin.org/zh/post/295131](https://bbs.deepin.org/zh/post/295131)。我们暂时移除了它。如果你知道如何修复它，欢迎 issue 或者 pr。
 
 ### 实验性补丁
